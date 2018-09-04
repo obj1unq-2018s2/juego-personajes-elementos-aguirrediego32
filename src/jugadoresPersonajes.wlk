@@ -31,7 +31,7 @@ object noHayPersonaje {
 }
 
 object ballesta{
-	var flechas = 0
+	var flechas = 10
 	
 	method estaCargada(){
 		return self.siTieneFlechas()
@@ -42,13 +42,19 @@ object ballesta{
 	method potencia(){
 		return 4
 	}
+	method registrarUso(){
+		flechas -=1
+	}
 }
 // elementos que se encuentra//
 	object castillo {
+	//const altura = 20 por que la altura no aumenta	
 	var property  alto =20
 	var property nivelDeDefensa = 150
 	
-	method recibirAtaque(valorPotencia){
-		self.recibirAtaque(valorPotencia)
+	method recibirAtaque(potencia){
+		nivelDeDefensa-= potencia
+		}
+		
 	}
-}	
+	
