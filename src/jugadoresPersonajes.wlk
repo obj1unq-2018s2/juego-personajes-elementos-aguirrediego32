@@ -17,12 +17,18 @@ object floki {
 
 object mario {
 	var valorRecolectado = 0
-	
+	var ultimoElementoEncontrado
 	method encontrar(elemento) {
 	    valorRecolectado += elemento.valorQueOtorga()
 	    elemento.recibirTrabajo()
-	    // ... acá hay que agregar una línea ...
+	    ultimoElementoEncontrado = elemento
+	   
 	}
+	method esFeliz(){
+		return valorRecolectado>= 50
+		 or ultimoElementoEncontrado.alto()>=10
+	} 
+	method valorRecolectado(){return valorRecolectado}
 }
 
 
@@ -38,6 +44,9 @@ object ballesta{
 	}
 	method siTieneFlechas(){
 	  return (flechas>0)
+	}
+	method cantidadFlechas(){
+		return flechas
 	}
 	method potencia(){
 		return 4
@@ -55,6 +64,16 @@ object ballesta{
 	method recibirAtaque(potencia){
 		nivelDeDefensa-= potencia
 		}
-		
+	method valorQueOtorga() = nivelDeDefensa /5	
+	
+	method recibirTrabajo(){
+		nivelDeDefensa = (nivelDeDefensa +20).min(200)
 	}
+}
+	
+
+		
+	
+	
+	
 	
