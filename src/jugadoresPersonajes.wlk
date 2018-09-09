@@ -70,7 +70,17 @@ object ballesta{
 		nivelDeDefensa = (nivelDeDefensa +20).min(200)
 	}
 }
+object aurora {
+	var property alto = 1
+	var estaViva = True
 	
+	method recibirAtaque(potencia){
+		if(potencia>= 10){
+			estaViva = false
+			}
+		}
+	
+}	
 
 		
 	
