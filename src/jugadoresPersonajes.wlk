@@ -1,5 +1,7 @@
 object luisa {
-	var personajeActivo = noHayPersonaje
+	var personajeActivo 
+	method miPersonajeEs() {return personajeActivo}
+	method personajeElegido (personaje){ personajeActivo = personaje}
 }
 
 // personajes
