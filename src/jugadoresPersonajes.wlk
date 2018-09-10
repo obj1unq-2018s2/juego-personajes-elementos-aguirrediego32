@@ -2,9 +2,9 @@ object luisa {
 	var personajeActivo = noHayPersonaje
 }
 
-
+// personajes
 object floki {
-	var property arma = ballesta
+	var property arma = jabalina
 	
 	method encontrar(elemento) {
 		
@@ -35,7 +35,7 @@ object mario {
 object noHayPersonaje {
 	// no hace falta ponerle ningún método, es solamente para marcarle a Luisa que no tiene ningún personaje activo
 }
-
+// armas posibles que pueden usar los personajes
 object ballesta{
 	var flechas = 10
 	
@@ -55,33 +55,56 @@ object ballesta{
 		flechas -=1
 	}
 }
+object jabalina{
+	var lanzamiento = 1
+	method siTieneUso() {
+		return(lanzamiento > 0)
+	}
+	method estaCargada (){
+		return self.siTieneUso()
+	}
+	method potencia() {return  30}
+	method registrarUso(){
+		lanzamiento -= 1
+	}
+}
 // elementos que se encuentra//
 	object castillo {
-	//const altura = 20 por que la altura no aumenta	
-	var property  alto =20
+	var property  alto =20 	//const altura = 20 por que la altura no aumenta
 	var property nivelDeDefensa = 150
 	
 	method recibirAtaque(potencia){
 		nivelDeDefensa-= potencia
 		}
-	method valorQueOtorga() = nivelDeDefensa /5	
+	method valorQueOtorga() = nivelDeDefensa /5	// si tiene 200 otorga 40
 	
 	method recibirTrabajo(){
-		nivelDeDefensa = (nivelDeDefensa +20).min(200)
+		nivelDeDefensa = (nivelDeDefensa +20).min(200)  // no se pasa de 200
 	}
 }
 object aurora {
 	var property alto = 1
-	var estaViva = True
+	var estaViva = true
 	
 	method recibirAtaque(potencia){
 		if(potencia>= 10){
 			estaViva = false
 			}
 		}
+	method valorQueOtorga() = 15
+	method recibirTrabajo() {}	
+}		
+		
+object tipa {
+	var property alto = 8
+	method recibirAtaque(potencia){}
+	method valorQueOtorga() = 2 * alto
+	method recibirTrabajo(){
+		alto += 1
+	}
+		
 	
-}	
-
+}
 		
 	
 	
